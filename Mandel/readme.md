@@ -1,0 +1,1 @@
+The Mandelbrot set is a very well known fractal pattern that is extremely easy to calulate and display on  pixel map. The Mandelbrot set is a good jumping off point for implementing more complicated fractal sets such as Jula sets. Using the equation $z^2+c$, let z be zero and iterate this equation recursively for every pixel value c on the pixel map. 
