@@ -5,20 +5,16 @@ void setup() {
     colorMode(HSB,1);
 }
 
-float multRE(float a, float b, float x, float y, int i){ //<>//
-    if (i==0) return x;
+//true for real, false for imaginary
+float multcomp(float a, float b, float x, float y, int i, boolean mode){ //<>//
+    if (i==0){
+     if (mode) return x;
+     else return y;
+    }
     float xtmp= a*x - b*y;
     y= b*x + a*y;
     x=xtmp;
-    return multRE(a,b,x,y,i-1);
-}
-
-float multIM(float a, float b, float x, float y, int i){
-    if (i==0) return y;
-    float xtmp= a*x - b*y;
-    y= b*x + a*y;
-    x=xtmp;
-    return multIM(a,b,x,y,i-1);
+    return multcomp(a,b,x,y,i-1,mode);
 }
 
 void draw() {
@@ -33,8 +29,8 @@ void draw() {
         float c_re=map(mouseX,0,width,-w,w);
         float c_im=map(mouseY,0,height,-l,l);
         while(currIter < maxIter  &&    z_re*z_re+z_im*z_im <= esc){
-            float tmp = multRE(z_re,z_im,z_re,z_im,1) + c_re;
-            z_im = multIM(z_re,z_im,z_re,z_im,1) + c_im;
+            float tmp = multcomp(z_re,z_im,z_re,z_im,1,true) + c_re;
+            z_im = multcomp(z_re,z_im,z_re,z_im,1,false) + c_im;
             z_re = tmp;
             currIter++;
         }
@@ -48,4 +44,8 @@ void draw() {
       } 
     }
     updatePixels();
+    stroke(1,100);
+    line(1000/2, 0, 1000/2, 1000);
+    line(0, 700/2, 1000, 700/2);
+  
 }
