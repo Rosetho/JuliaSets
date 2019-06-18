@@ -17,9 +17,11 @@ float multcomp(float a, float b, float x, float y, int i, boolean mode){ //<>//
     return multcomp(a,b,x,y,i-1,mode);
 }
 
+float power(float a, float b, int i, boolean mode){ return multcomp(a,b,a,b,i,mode);}
+
 void draw() {
     loadPixels();
-    int maxIter=100;
+    int maxIter=50;
     int esc=4;
     for(int y = 0; y < height; y++){
       for(int x = 0; x < width; x++){
@@ -35,7 +37,7 @@ void draw() {
             currIter++;
         }
         if(currIter == maxIter){//IN SET
-         pixels[x+y*width]=color(0);
+          pixels[x+y*width]=color(0);
         }
         else{//blew up
           float h=sqrt(float(currIter)/maxIter); 
@@ -44,8 +46,4 @@ void draw() {
       } 
     }
     updatePixels();
-    stroke(1,100);
-    line(1000/2, 0, 1000/2, 1000);
-    line(0, 700/2, 1000, 700/2);
-  
 }
