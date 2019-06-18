@@ -1,7 +1,3 @@
 A Julia set is a set of complex numbers that when iterated, do not approach infinity. Given a complex plane, each value on the plane can be interrogated to determine its presence in the set. There are infinte Julia sets that exist for infinte types of iterative equations. Perhaps the most well know are the Julia sets for $ z^2 + c$. To visualize a Julia set, one must choose a complex number, C, and iterate the Julia function over each coordinate on a plane represented by Z. So if you have 1000 coordinates, youll have 1000 iterateive functions. If the iteration reaches a limit, a black pixel is set to that coordinate. If the iteration blows up, a color is assign as to how much the value blew up. The boundary between growth and stability is what makes the Julia set a beautifully simple part of nature. 
 
-changes- 
-Currently implemeting a function that calculates powers complex numbers recursively. Its input parameters are bulky, but it performs correctly. Considering adjusting it, but it will allow me to increase the power of the Julia set equation without having to type out the entire equation for cubing a complex number (what I was doing before). This appraoch lets me raise the power to as high as I desire. 
-
-I want to upload another branch that performs the same function with the added luxury of using the Mandelbrot set as an index to easily locate the most complex Julia patterns. I'll have to split up the canvas so the user can move the mouse of the mandelbrot picture and alter the Julia pattern. 
- 
+This program is the bare bones implementation for programming visual Julia sets. This is the root concept of the other branches in the repository. 
