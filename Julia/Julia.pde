@@ -1,11 +1,16 @@
-float l=1.5;
-float w=1.5;
+int mouse = 0;
+void mouseClicked() {
+  if (mouse == 0) mouse = 1;
+  else mouse = 0;
+}
 void setup() {
     size(1000,700);  
     colorMode(HSB,1);
 } //<>//
 void draw() {
     loadPixels();
+    float l=1.5;
+    float w=1.5;
     int maxIter=65;
     int esc=4;
     for(int y = 0; y < height; y++){
@@ -22,7 +27,9 @@ void draw() {
             currIter++;
         }
         if(currIter == maxIter){//IN SET
-          pixels[x+y*width]=color(0);
+          if(mouse==0){
+            pixels[x+y*width]=color(0);
+          }
         }
         else{//blew up
           float h=sqrt(float(currIter)/maxIter); 

@@ -1,8 +1,8 @@
 float mouse=0;
-int ss = 860;
+int ss = 700;
 int half = ss/2;
 void setup() { 
-  size(860,860);  
+  size(700,700);  
   pixelDensity(1);
   colorMode(HSB,1);
 }
@@ -10,7 +10,7 @@ void draw() {
   loadPixels();
   float w=1.5;
   float l=1.5;
-  int maxIter=100;
+  int maxIter=70;
   int esc=4;
   for(int y = 0; y < height; y++){
       for(int x = 0; x < width; x++){
@@ -72,7 +72,6 @@ void draw() {
                           tmp = za*za*za*za*za - 10*za*za*za*zb*zb + 5*za*zb*zb*zb*zb + ca;
                           zb = 5*za*za*za*za*zb - 10*za*za*zb*zb*zb + zb*zb*zb*zb*zb + cb;
                         }
-                        
                         else{
                           tmp = 0;
                           zb = 0;
@@ -93,16 +92,12 @@ void draw() {
   }
     updatePixels();
     stroke(.2,10);
-    line(430, 0, 430, 860);
-    line(0, 430, 860, 430);
+    line(350, 0, 350, 700);
+    line(0, 350, 700, 350);
 }
-
 void mouseClicked() {
-  if (mouse == 0) {
-    mouse = 1;
-  } else {
-    mouse = 0;
-  }
+  if (mouse == 0) mouse = 1;
+  else mouse = 0;
 }
   
   
