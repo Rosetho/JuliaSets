@@ -1,4 +1,4 @@
-float s=1.2;
+float s=1.5;
 int max=70;
 int part=1;
 int i=0;
@@ -10,26 +10,13 @@ void setup(){
   colorMode(HSB,1);
 }
 
-void mouseWheel(MouseEvent event) {
-  if (part<75) part=part+1;
-}
-
-void mouseDragged() 
-{
-  if(part==0){
-    part=1;
-  }
-  part=part-1;
-}
-
 int Julia_f(int x, int y){
   int iter=0;
   float pull=s/part;
-
-  float za = map(x,j*width/part,(j+1)*width/part,-s,s);
-  float zb = map(y,i*height/part,(i+1)*height/part,-s,s);
-  float ca=  map(mouseX,j*width/part,(j+1)*width/part,-pull,pull);
-  float cb= map(mouseY,i*height/part,(i+1)*height/part,-pull,pull);
+  float za = map(x,j*width/part,(j+1)*width/part,-pull,pull);
+  float zb = map(y,i*height/part,(i+1)*height/part,-pull,pull);
+  float ca=  map(width/4,j*width/part,(j+1)*width/part,-pull,pull);
+  float cb= map(height/2,i*height/part,(i+1)*height/part,-pull,pull);
   while(iter < max &&    za*za+zb*zb <= 4){
     float tmp = za*za-zb*zb + ca;
     zb = 2*za*zb + cb;  
@@ -41,10 +28,7 @@ int Julia_f(int x, int y){
 }
 
 void draw() {
-  //part=part+1;
-  if(part==0){
-    part=1;
-  }
+  if (part<1000) part=part+5;
   loadPixels();
   i=0;
   j=0;
@@ -61,8 +45,5 @@ void draw() {
     j=0;i++;
   }
     updatePixels();
-    text(part,10,15);
-}
-
-
-  
+    text(part,100,100);
+} 
