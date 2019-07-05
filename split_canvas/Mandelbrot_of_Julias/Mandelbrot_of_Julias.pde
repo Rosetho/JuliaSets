@@ -28,7 +28,8 @@ int Julia_f(int x, int y){
 }
 
 void draw() {
-  if (part<1000) part=part+5;
+  if (part<100) part=part+1;
+  else if (part <1000) part=part+10;
   loadPixels();
   i=0;
   j=0;
