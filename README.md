@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>README</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" async src="/home/tom/MathJax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+</head>
+
+<body>
+<h3>Julia.pde</h3>
+
+A Julia set is a set of complex numbers that when iterated, do not approach infinity. Given a complex plane, each value on the plane can be interrogated to determine its presence in the set. There are infinte Julia sets that exist for infinte types of iterative equations. Perhaps the most well know are the Julia sets for $ z^2 + c$. To visualize a Julia set, one must choose a complex number, C, and iterate the Julia function over each coordinate on a plane represented by Z. So if you have 1000 coordinates, youll have 1000 iterateive functions. If the iteration reaches a limit, a black pixel is set to that coordinate. If the iteration blows up, a color is assign as to how much the value blew up. The boundary between growth and stability is what makes the Julia set a beautifully simple part of nature. 
+
+This program is the bare bones implementation for programming visual Julia sets. This is the root concept of the other branches in the repository. 
+
+<h3>Mandelbrot.pde</h3>
+The Mandelbrot set is a very well known fractal pattern that is extremely easy to calulate and display on  pixel map. The Mandelbrot set is a good jumping off point for implementing more complicated fractal sets such as Jula sets. Using the equation $z^2+c$, let z be zero and iterate this equation recursively for every pixel value c on the pixel map. 
+
+<h3>Julia_Mandelbrot.pde</h3>
+Using the Mandelbrot set as a map of the Julia set. The mouse is maped to the axis mandelbrot image, trace the boundary of the main blob to see the most complex images. This displays the importance of the Mandelbrot set being an index for Julia sets. 
+
+<h3>fourJulias.pde</h3>
+Four Julia set equations $z^n+c$ for $n=2,3,4,5$ that move dynamically based on the c value mapped to the mouse. The canvas is a complex plane in which the user can move their mouse to vary the c value. One will notice that the coordinate (0,0) is always a unit cirle for these types of Julia sets. 
+
+<h3>JM_powers</h3>
+An altered version of Julia_Mandelbrot that allows the user to click to raise the power $n$ of the Julia set function $z_2=z_1^n+c$ 
+
+<h1></h1>
+</body>
+</html>
+
+
